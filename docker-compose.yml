@@ -1,0 +1,13 @@
+services:
+    app:
+        container_name: node
+        build:
+            context: . # ビルドコンテキスト
+            dockerfile: Dockerfile # Dockerfileのディレクトリ
+        volumes:
+            - type: bind
+              source: ./
+              target: /usr/src/app
+        tty: true
+        ports:
+            - '5173:5173'
